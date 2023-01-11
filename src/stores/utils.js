@@ -62,7 +62,6 @@ export const toBlock = (b) => ({
 });
 
 export const toTxns = (result, blocks) => {
-    debugger;
     const txns = result.map((x) => ({
         ...x,
         age: blocks.find((b) => b.number === x.blockNumber)?.age,
@@ -72,3 +71,13 @@ export const toTxns = (result, blocks) => {
     txns.sort((a, b) => b.blockNumber - a.blockNumber);
     return txns;
 };
+
+export const toTxn = (t, block) => ({
+    ...t,
+    age: getDiff(block.timestamp * 1000, moment()),
+    date: toDate(block.timestamp * 1000),
+    value: web3.utils.fromWei(t.value, 'ether'),
+    gasPrice: web3.utils.fromWei(t.gasPrice, 'ether'),
+});
+
+

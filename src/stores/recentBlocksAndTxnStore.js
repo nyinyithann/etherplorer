@@ -21,7 +21,7 @@ export const defaultSelector = ({
   getRecentBlocksAndTxn,
 });
 
-const NUMBER_OF_RECENT_BLOCKS = 50;
+const NUMBER_OF_RECENT_BLOCKS = 2;
 
 const useRecentBlocksAndTxnStore = create((set, get) => ({
   blockLoading: false,
@@ -76,8 +76,8 @@ const useRecentBlocksAndTxnStore = create((set, get) => ({
 
       try {
         const txns = resultBlocks
-          .slice(0, 3)
-          .reduce((acc, x) => acc.concat(x.transactions), []);
+          .slice(0, 1)
+          .reduce((acc, x) => acc.concat(x.transactions), []).slice(0, 2);
 
         const transactions = await Promise.all(
           txns.map((x) => web3.eth.getTransaction(x))
