@@ -1,6 +1,6 @@
 {
-  "short_name": "React Template",
-  "name": "React Template in JS, Webpack, and TailwindCSS",
+  "short_name": "Ethereum Explorer",
+  "name": "Ethereum Explorer",
   "icons": [
     {
       "src": "favicon.ico",

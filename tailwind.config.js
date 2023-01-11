@@ -121,8 +121,8 @@ module.exports = {
         // 'kthird': '1.75fr repeat(11,minmax(0,1fr)) 1.75fr',
         // 'kfourth': '2.25fr repeat(10, minmax(0,1fr)) 2.25fr',
         // 'kfifth': '1.5fr 1.5fr 8.5fr 1.5fr 1.5fr',
-        blocklist:
-          'minmax(0, 0.5fr) minmax(0, 1fr) minmax(0, 0.3fr) minmax(0, 0.5fr) minmax(0, 0.5fr)',
+        // blocklist:
+        //   'minmax(0, 0.5fr) minmax(0, 1fr) minmax(0, 0.3fr) minmax(0, 0.5fr) minmax(0, 0.5fr)',
       },
       keyframes: {
         spin_infinity: {

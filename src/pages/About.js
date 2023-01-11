@@ -18,6 +18,10 @@ function AuthorLink({ link, site, title }) {
 }
 
 function About() {
+  React.useEffect(() => {
+    document.title = 'Ether Explorer';
+  }, []);
+
   return (
     <div className="flex h-full flex-col items-center justify-center gap-2 text-center font-mono text-600">
       <div className="m-auto">
