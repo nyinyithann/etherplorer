@@ -27,13 +27,20 @@ const useBlockStore = create((set) => ({
             }));
 
             const block = await web3.eth.getBlock(hashOrNumber);
-            const resultBlock = toBlock(block);
-
-            set((_) => ({
-                block: resultBlock,
-                blockLoading: false,
-                blockLoadingError: null,
-            }));
+            if (!block) {
+                set((_) => ({
+                    blockLoading: false,
+                    blockLoadingError: `Couldn't find the block with number ${hashOrNumber}`,
+                    block: null,
+                }));
+            } else {
+                const resultBlock = toBlock(block);
+                set((_) => ({
+                    block: resultBlock,
+                    blockLoading: false,
+                    blockLoadingError: null,
+                }));
+            }
         } catch (e) {
             set((_) => ({
                 blockLoading: false,

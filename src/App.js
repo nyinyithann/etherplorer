@@ -13,15 +13,14 @@ import { useRecentBlocksAndTxnStore } from './stores';
 const Home = React.lazy(() => import('./pages/Home'));
 const About = React.lazy(() => import('./pages/About'));
 const Block = React.lazy(() => import('./pages/Block'));
-const Transaction = React.lazy(() => import('./pages/Transaction'));
-
+const TransactionPage = React.lazy(() => import('./pages/TransactionPage'));
 
 function App() {
     const [theme, setTheme] = useTheme('theme-blue');
 
     React.useEffect(() => {
         if (process.env.NODE_ENV === 'development') {
-            mountStoreDevtool("Recent Blocks & Txn", useRecentBlocksAndTxnStore);
+            mountStoreDevtool('Recent Blocks & Txn', useRecentBlocksAndTxnStore);
         }
     }, []);
 
@@ -50,21 +49,21 @@ function App() {
                                 }
                             />
                             <Route
-                                path="/block/*">
-                                <Route path=":blockNumber" element={
+                                path="/txn/:txHash"
+                                element={
+                                    <SuspensionLoader>
+                                        <TransactionPage />
+                                    </SuspensionLoader>
+                                }
+                            />
+                            <Route
+                                path="/block/:blockNumber"
+                                element={
                                     <SuspensionLoader>
                                         <Block />
                                     </SuspensionLoader>
-                                }/>
-                            </Route>
-                            <Route
-                                path="/txn/*">
-                                <Route path=":txnHash" element={
-                                    <SuspensionLoader>
-                                        <Transaction />
-                                    </SuspensionLoader>
-                                }/>
-                            </Route>
+                                }
+                            />
                             <Route path="*" element={<NoMatch />} />
                         </Routes>
                     </div>

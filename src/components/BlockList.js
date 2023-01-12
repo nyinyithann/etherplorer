@@ -5,7 +5,7 @@ import TitleWithReload from './TitleWithReload';
 
 const BlockList = ({ blocks, loading, error, onReload }) => {
   return (
-    <div className="mb-4 flex w-[100vw] flex-col gap-4 rounded-md border-[1px] border-200 p-4 md:w-[100vw] lg:w-[47vw] shadow-sm shadow-100">
+    <div className="mb-4 flex w-full flex-col gap-4 rounded-md border-[1px] border-200 p-4 shadow-sm shadow-100 md:w-[100vw] lg:w-[47vw]">
       <TitleWithReload title="Latest Blocks" onReload={onReload} />
       <div className="bs-scrollbar relative h-[20rem] flex-grow overflow-auto px-2">
         <table className="relative min-w-full border-separate border-spacing-0">
@@ -51,7 +51,10 @@ const BlockList = ({ blocks, loading, error, onReload }) => {
                     {x.number}
                   </Link>
                 </td>
-                <td className="p-2">{x.age}</td>
+
+                <td className="inline-block w-[8rem] min-w-[4rem] p-2 md:w-[6rem]">
+                  {x.age}
+                </td>
                 <td className="px-4 text-right">
                   {x.txnCount.toLocaleString('en-US')}
                 </td>
