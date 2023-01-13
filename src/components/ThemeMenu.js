@@ -4,15 +4,15 @@ import React, { Fragment, useCallback } from 'react';
 import { ThemeSwitchContext } from '../providers/ThemeSwitchProvider';
 
 const themeList = [
-  {
-    category: 'gray',
-    themes: [
-      { color: '#000000', name: 'dark' },
-      { color: '#94A3B8', name: 'theme-slate' },
-      { color: '#A3A3A3', name: 'theme-neutral' },
-      { color: '#cccccc', name: 'theme-lightgray' },
-    ],
-  },
+  // {
+  //   category: 'gray',
+  //   themes: [
+  //     { color: '#000000', name: 'dark' },
+  //     { color: '#94A3B8', name: 'theme-slate' },
+  //     { color: '#A3A3A3', name: 'theme-neutral' },
+  //     { color: '#cccccc', name: 'theme-lightgray' },
+  //   ],
+  // },
   {
     category: 'rose',
     themes: [
@@ -106,10 +106,10 @@ function ThemeMenu() {
           {open && (
             <Menu.Items
               as="div"
-              className="absolute right-1 top-6 mt-4 flex w-[12rem] origin-top-right flex-col rounded bg-500 shadow-md focus:outline-none dark:border-[1px] dark:border-slate-500 dark:bg-slate-600  md:w-40"
+              className="absolute right-1 top-[1.6rem] mt-4 flex w-auto origin-top-right flex-col items-center justify-center gap-y-[0.7rem] rounded bg-300 p-2 shadow-md  shadow-200 focus:outline-none dark:border-[1px] dark:border-slate-500 dark:bg-slate-600"
             >
               {themeList.map(({ category, themes }) => (
-                <div key={category} className="z-10 flex bg-300/80">
+                <div key={category} className="z-10 flex w-full">
                   {themes.map(({ color, name }) => (
                     <Menu.Item
                       key={name}

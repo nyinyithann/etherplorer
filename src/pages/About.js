@@ -26,14 +26,14 @@ function About() {
     <div className="flex h-full flex-col items-center justify-center gap-2 text-center font-mono text-600">
       <div className="m-auto">
         <h1 className="font-sans text-2xl font-bold text-900 dark:text-slate-100">
-          JavaScript React Template with Webpack and TailwindCSS
+          A Tiny Ethereum Explorer
         </h1>
         <div className="pt-4">
           <a
             target="_blank"
             rel="noreferrer"
             className="inline text-center font-sans text-xl text-800 underline dark:text-slate-100"
-            href="https://github.com/nyinyithann/react-webpack-tailwind-template"
+            href="https://github.com/nyinyithann/ethersearch"
           >
             GitHub Repository
           </a>

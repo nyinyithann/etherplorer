@@ -1,9 +1,11 @@
 import React from 'react';
-import Loading from './Loading';
 import { Link } from 'react-router-dom';
+
+import Error from './Error';
+import Loading from './Loading';
 import TitleWithReload from './TitleWithReload';
 
-const BlockList = ({ blocks, loading, error, onReload }) => {
+function BlockList({ blocks, loading, error, onReload }) {
   return (
     <div className="mb-4 flex w-full flex-col gap-4 rounded-md border-[1px] border-200 p-4 shadow-sm shadow-100 md:w-[100vw] lg:w-[47vw]">
       <TitleWithReload title="Latest Blocks" onReload={onReload} />
@@ -75,9 +77,10 @@ const BlockList = ({ blocks, loading, error, onReload }) => {
         >
           <Loading className="h-[3rem] w-[4rem] stroke-klor-400 stroke-[0.4rem] p-3 text-white" />
         </div>
+        <Error error={error} />
       </div>
     </div>
   );
-};
+}
 
 export default BlockList;

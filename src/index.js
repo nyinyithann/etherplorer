@@ -11,23 +11,23 @@ const containerId = 'root';
 
 const container = document.getElementById(containerId);
 if (container) {
-    const root = createRoot(container);
-    root.render(
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-    );
+  const root = createRoot(container);
+  root.render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
 } else {
-    const div = document.createElement('div');
-    const text = document.createTextNode(
-        `Element wiht id '${containerId}' not found at 'index.js'.`
-    );
-    div.appendChild(text);
-    document.body.appendChild(div);
+  const div = document.createElement('div');
+  const text = document.createTextNode(
+    `Element wiht id '${containerId}' not found at 'index.js'.`
+  );
+  div.appendChild(text);
+  document.body.appendChild(div);
 }
 
 if (module.hot) {
-    module.hot.accept();
+  module.hot.accept();
 }
 
 // if (process.env.NODE_ENV === 'development') {

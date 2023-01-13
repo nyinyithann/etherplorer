@@ -1,7 +1,8 @@
 import { Vec } from '@nyinyithann/vec.js';
 import create from 'zustand';
+
+import { toBlock, toBlocks, toTxns } from './utils';
 import web3 from './webthree';
-import { toBlocks, toTxns, toBlock } from './utils';
 
 export const defaultSelector = ({
   blockLoading,
@@ -54,7 +55,7 @@ const useRecentBlocksAndTxnStore = create((set, get) => ({
         );
 
         resultBlocks = toBlocks(blks);
-                
+
         set(({ transactions }) => ({
           blockLoading: false,
           blockLoadingError: null,
@@ -77,7 +78,8 @@ const useRecentBlocksAndTxnStore = create((set, get) => ({
       try {
         const txns = resultBlocks
           .slice(0, 1)
-          .reduce((acc, x) => acc.concat(x.transactions), []).slice(0, 2);
+          .reduce((acc, x) => acc.concat(x.transactions), [])
+          .slice(0, 2);
 
         const transactions = await Promise.all(
           txns.map((x) => web3.eth.getTransaction(x))
@@ -91,7 +93,7 @@ const useRecentBlocksAndTxnStore = create((set, get) => ({
           txnLoadingError: null,
         }));
       } catch (e) {
-                console.log(e);
+        console.log(e);
         set(({ blocks }) => ({
           blockLoading: false,
           blockLoadingError: null,

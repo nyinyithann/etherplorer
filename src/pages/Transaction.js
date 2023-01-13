@@ -1,13 +1,14 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useTxnStore, txnStoreSelector } from '../stores';
+
+import Error from '../components/Error';
 import Loading from '../components/Loading';
-import Title from '../components/Title';
 import Pair from '../components/Pair';
 import SearchBox from '../components/SearchBox';
-import Error from '../components/Error';
+import Title from '../components/Title';
+import { txnStoreSelector, useTxnStore } from '../stores';
 
-export default function TransactionPage() {
+export default function Transaction() {
   const { txHash } = useParams();
   const { txnLoading, txnLoadingError, txn, getTxn } =
     useTxnStore(txnStoreSelector);
@@ -19,7 +20,7 @@ export default function TransactionPage() {
     document.title = 'Ether Explorer (Transaction)';
   }, []);
   return (
-    <div className="relative flex flex-col justify-center gap-y-2 p-10">
+    <div className="relative flex flex-col justify-center gap-y-2 p-10 pt-4">
       <div className="flex w-full items-center justify-center pb-4">
         <SearchBox />
       </div>

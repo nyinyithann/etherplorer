@@ -11,7 +11,7 @@ function Navbar() {
         <div className="flex space-x-2">
           <div className="hidden items-center md:flex">
             <span className="text-center font-title text-lg text-900 drop-shadow-2xl dark:text-slate-400">
-              Ether Explorer
+              Etherplorer
             </span>
           </div>
           <div className="flex items-center font-nav text-xl font-black md:text-lg">
