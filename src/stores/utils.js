@@ -47,12 +47,6 @@ const getDiff = (timestamp, now) => {
   return `${result} ${seconds} ${seconds > 1 ? 'seconds' : 'second'}`;
 };
 
-export const toBlocks = (result) => {
-  const blocks = result.map(toBlock);
-  blocks.sort((a, b) => b.timestamp - a.timestamp);
-  return blocks;
-};
-
 export const toBlock = (b) => ({
   ...b,
   date: toDate(b.timestamp * 1000),
@@ -63,6 +57,12 @@ export const toBlock = (b) => ({
   txnCount:
     b.transactions && Array.isArray(b.transactions) ? b.transactions.length : 0,
 });
+
+export const toBlocks = (result) => {
+  const blocks = result.map(toBlock);
+  blocks.sort((a, b) => b.timestamp - a.timestamp);
+  return blocks;
+};
 
 export const toTxns = (result, blocks) => {
   const txns = result.map((x) => ({

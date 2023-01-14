@@ -11,12 +11,12 @@ export default function SearchBox() {
   };
 
   const navigateTo = (v) => {
-    const text = v.trim();
-    if (Number.isFinite(+text)) {
-      navigate(`/block/${text}`);
+    const textValue = v.trim();
+    if (Number.isFinite(+textValue)) {
+      navigate(`/block/${textValue}`);
     }
-    if (web3.utils.isHexStrict(text)) {
-      navigate(`/txn/${text}`);
+    if (web3.utils.isHexStrict(textValue)) {
+      navigate(`/txn/${textValue}`);
     }
   };
 
@@ -33,12 +33,12 @@ export default function SearchBox() {
   };
 
   return (
-    <div className="relative flex w-full items-center gap-x-2 pb-2 text-slate-500 focus-within:text-slate-600 bg-300 p-2 rounded-lg shadow shadow-200">
+    <div className="relative flex w-full items-center gap-x-2 rounded-lg bg-300 p-2 pb-2 text-slate-500 shadow shadow-200 focus-within:text-slate-600">
       <input
         id="search-field"
-        className="block h-8 w-full border-t-0 border-r-0 border-l-0 border-b-[1px] border-b-400 pl-[2rem] text-[0.9rem] text-900 placeholder-klor-300 outline-none ring-0 hover:border-b-500 focus:text-900 focus:placeholder-klor-300 focus:outline-none focus:ring-0 active:text-900 active:outline-none active:ring-0 dark:bg-slate-800 dark:text-slate-400 rounded-md"
+        className="block h-8 w-full rounded-md border-t-0 border-r-0 border-l-0 border-b-[1px] border-b-400 pl-[2rem] text-[0.9rem] text-900 placeholder-klor-300 outline-none ring-0 hover:border-b-500 focus:text-900 focus:placeholder-klor-300 focus:outline-none focus:ring-0 active:text-900 active:outline-none active:ring-0 dark:bg-slate-800 dark:text-slate-400"
         placeholder="Search block number/ txn hash"
-        type_="search"
+        type="search"
         name="search"
         maxLength={256}
         value={text}
@@ -47,7 +47,7 @@ export default function SearchBox() {
       />
       <button
         type="button"
-        className="cursor-pointer rounded-md bg-400 p-2 hover:bg-500 focus:bg-500 active:bg-500 shadow shadow-300"
+        className="cursor-pointer rounded-md bg-400 p-2 shadow shadow-300 hover:bg-500 focus:bg-500 active:bg-500"
         onClick={onClick}
       >
         <svg

@@ -5,7 +5,7 @@ export default function Error({ error }) {
     return <div />;
   }
   return (
-    <div className="flex w-full flex-col p-2 font-sans text-800">
+    <div className="z-50 flex w-full flex-col p-2 font-sans text-800">
       <p>Sorry. Error occured! 😔</p>
       <p>{error}</p>
     </div>

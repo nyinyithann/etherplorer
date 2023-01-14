@@ -1,7 +1,7 @@
 import { Vec } from '@nyinyithann/vec.js';
 import create from 'zustand';
 
-import { toBlock, toBlocks, toTxns } from './utils';
+import { toBlocks, toTxns } from './utils';
 import web3 from './webthree';
 
 export const defaultSelector = ({
@@ -22,7 +22,7 @@ export const defaultSelector = ({
   getRecentBlocksAndTxn,
 });
 
-const NUMBER_OF_RECENT_BLOCKS = 2;
+const NUMBER_OF_RECENT_BLOCKS = 100;
 
 const useRecentBlocksAndTxnStore = create((set, get) => ({
   blockLoading: false,
@@ -32,8 +32,8 @@ const useRecentBlocksAndTxnStore = create((set, get) => ({
   txnLoadingError: null,
   transactions: [],
   getRecentBlocksAndTxn: async (forcedReload) => {
-    const blks = get().blocks;
-    const needReload = forcedReload || blks.length === 0;
+    const existingBlks = get().blocks;
+    const needReload = forcedReload || existingBlks.length === 0;
     if (needReload) {
       set(({ blocks, transactions }) => ({
         blocks,
@@ -77,9 +77,8 @@ const useRecentBlocksAndTxnStore = create((set, get) => ({
 
       try {
         const txns = resultBlocks
-          .slice(0, 1)
-          .reduce((acc, x) => acc.concat(x.transactions), [])
-          .slice(0, 2);
+          .slice(0, 3)
+          .reduce((acc, x) => acc.concat(x.transactions), []);
 
         const transactions = await Promise.all(
           txns.map((x) => web3.eth.getTransaction(x))
@@ -93,7 +92,6 @@ const useRecentBlocksAndTxnStore = create((set, get) => ({
           txnLoadingError: null,
         }));
       } catch (e) {
-        console.log(e);
         set(({ blocks }) => ({
           blockLoading: false,
           blockLoadingError: null,

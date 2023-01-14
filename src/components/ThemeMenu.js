@@ -4,15 +4,6 @@ import React, { Fragment, useCallback } from 'react';
 import { ThemeSwitchContext } from '../providers/ThemeSwitchProvider';
 
 const themeList = [
-  // {
-  //   category: 'gray',
-  //   themes: [
-  //     { color: '#000000', name: 'dark' },
-  //     { color: '#94A3B8', name: 'theme-slate' },
-  //     { color: '#A3A3A3', name: 'theme-neutral' },
-  //     { color: '#cccccc', name: 'theme-lightgray' },
-  //   ],
-  // },
   {
     category: 'rose',
     themes: [

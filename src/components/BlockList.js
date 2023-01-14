@@ -8,7 +8,10 @@ import TitleWithReload from './TitleWithReload';
 function BlockList({ blocks, loading, error, onReload }) {
   return (
     <div className="mb-4 flex w-full flex-col gap-4 rounded-md border-[1px] border-200 p-4 shadow-sm shadow-100 md:w-[100vw] lg:w-[47vw]">
-      <TitleWithReload title="Latest Blocks" onReload={onReload} />
+      <TitleWithReload
+        title={`Latest Blocks - ${blocks ? blocks.length : ''}`}
+        onReload={onReload}
+      />
       <div className="bs-scrollbar relative h-[20rem] flex-grow overflow-auto px-2">
         <table className="relative min-w-full border-separate border-spacing-0">
           <thead className="w-full rounded-md text-left text-900/80">

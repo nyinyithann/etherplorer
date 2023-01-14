@@ -32,7 +32,7 @@ const useTxnStore = create((set) => ({
         set((_) => ({
           txn: null,
           txnLoading: false,
-          txnLoadingError: "Couldn't find the transaction with hash ${txnHash}",
+          txnLoadingError: `Couldn't find the transaction with hash ${txnHash}`,
         }));
       } else {
         const block = await web3.eth.getBlock(txn.blockNumber);

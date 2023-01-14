@@ -5,7 +5,6 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
 const containerId = 'root';
 
@@ -29,8 +28,3 @@ if (container) {
 if (module.hot) {
   module.hot.accept();
 }
-
-// if (process.env.NODE_ENV === 'development') {
-//   // eslint-disable-next-line no-console
-//   reportWebVitals(console.log);
-// }

@@ -1,10 +1,10 @@
 import React from 'react';
 
 import BlockList from '../components/BlockList';
+import Chart from '../components/Chart';
 import SearchBox from '../components/SearchBox';
 import TxnList from '../components/TxnList';
 import { recentStoreselector, useRecentBlocksAndTxnStore } from '../stores';
-import Chart from '../components/Chart';
 
 export default function Home() {
   const {
@@ -27,7 +27,7 @@ export default function Home() {
       <div className="flex w-full items-center justify-center px-4 md:px-20">
         <SearchBox />
       </div>
-    <div className="flex w-[91vw] sm:w-[95vw] flex-col justify-center items-center gap-0 rounded-md border-[1px] border-200 p-4 shadow-sm shadow-100 h-[100rem]">
+      <div className="flex h-auto w-[95vw] flex-col items-center justify-center gap-0 rounded-md border-[1px] border-200 p-4 shadow-sm shadow-100">
         <Chart />
       </div>
       <div className="flex w-full flex-row flex-wrap justify-evenly">
